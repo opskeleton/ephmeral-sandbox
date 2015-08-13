@@ -1,5 +1,5 @@
 # Intro 
-This project manages a sandbox for [ephmeral](url)
+Throw away browser sandbox.
 
 # Usage
 ```bash
@@ -9,7 +9,7 @@ This project manages a sandbox for [ephmeral](url)
 
 # Copyright and license
 
-Copyright [2015] [First Last Name]
+Copyright [2015] [Ronen Narkis]
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
