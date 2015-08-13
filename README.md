@@ -7,6 +7,13 @@ Throw away browser sandbox.
   $ ./boot.sh
 ```
 
+To browse:
+
+```bash
+  $ vagrant ssh -- -Y
+  $ firefox
+```
+
 # Copyright and license
 
 Copyright [2015] [Ronen Narkis]
