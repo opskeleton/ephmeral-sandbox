@@ -3,3 +3,5 @@ modules
 .librarian
 .tmp
 pkg
+TorGuardPRO.zip
+hieradata/prod.yaml
