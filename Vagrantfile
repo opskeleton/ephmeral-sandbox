@@ -1,5 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+update = <<SCRIPT
+if [ ! -f /tmp/up ]; then
+  sudo aptitude update 
+  touch /tmp/up
+fi
+SCRIPT
+
 
 Vagrant.configure("2") do |config|
 
@@ -10,14 +17,19 @@ Vagrant.configure("2") do |config|
     env  = ENV['PUPPET_ENV']
     env ||= 'dev'
 
-    node.vm.box = 'ubuntu-desktop-15.04_puppet-3.7.5' 
+    node.vm.box = 'lubuntu-15.04_puppet-3.7.5' 
     node.vm.network :public_network, :bridge => bridge
     node.vm.hostname = 'ephmeral.local'
-  
+    node.ssh.port = 2222
+
     node.vm.provider :virtualbox do |vb|
       vb.customize ['modifyvm', :id, '--memory', 2048, '--cpus', 2]
+      vb.memory = 4096
+      vb.cpus = 4
+      vb.gui = false
     end
 
+    node.vm.provision :shell, :inline => update
     node.vm.provision :puppet do |puppet|
       puppet.manifests_path = 'manifests'
       puppet.manifest_file  = 'default.pp'
