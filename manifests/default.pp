@@ -12,4 +12,6 @@ node default {
     port   => '22',
     lan    => '10.0.2.2'
   }
+
+  class{'vpnize::torguard':}
 }
