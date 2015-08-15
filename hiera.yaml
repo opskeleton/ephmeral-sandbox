@@ -6,5 +6,6 @@
 :hierarchy:  
  - '%{::virtual}'
  - common
+ - '%{::environment}'
 :yaml:
    :datadir: hieradata

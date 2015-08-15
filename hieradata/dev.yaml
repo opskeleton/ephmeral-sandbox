@@ -1,0 +1,4 @@
+--- 
+vpnize::torguard::user: 'foo'
+vpnize::torguard::password: 'foo'
+
