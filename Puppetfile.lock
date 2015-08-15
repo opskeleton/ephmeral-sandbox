@@ -1,0 +1,29 @@
+FORGE
+  remote: https://forgeapi.puppetlabs.com
+  specs:
+    puppetlabs-apt (2.1.1)
+      puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
+    puppetlabs-stdlib (4.8.0)
+
+GIT
+  remote: git://github.com/pulling-strings/attachmentgenie-ufw.git
+  ref: master
+  sha: 314ece9540577e811624cd38ba5d94914de569a8
+  specs:
+    strings-ufw (2.0.0)
+      puppetlabs-stdlib (< 5.0.0, >= 2.2.1)
+
+GIT
+  remote: git://github.com/pulling-strings/puppet-desktop.git
+  ref: master
+  sha: b0dc2c8381a285c9088c4b255dc38c2350cf9e84
+  specs:
+    strings-desktop (0.1.0)
+      puppetlabs-apt (>= 2.1.1)
+      puppetlabs-stdlib (< 5.0.0, >= 2.2.1)
+
+DEPENDENCIES
+  puppetlabs-stdlib (>= 0)
+  strings-desktop (>= 0)
+  strings-ufw (>= 0)
+
