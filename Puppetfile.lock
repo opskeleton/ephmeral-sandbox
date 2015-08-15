@@ -1,6 +1,7 @@
 FORGE
   remote: https://forgeapi.puppetlabs.com
   specs:
+    gini-archive (0.2.0)
     puppetlabs-apt (2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
     puppetlabs-stdlib (4.8.0)
@@ -22,8 +23,18 @@ GIT
       puppetlabs-apt (>= 2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 2.2.1)
 
+GIT
+  remote: git://github.com/pulling-strings/puppet-vpnize.git
+  ref: master
+  sha: 232543e52ebc602f00d3bfac42f307b248545ec3
+  specs:
+    strings-vpnize (0.0.1)
+      gini-archive (= 0.2.0)
+      puppetlabs-stdlib (>= 1.0.0)
+
 DEPENDENCIES
   puppetlabs-stdlib (>= 0)
   strings-desktop (>= 0)
   strings-ufw (>= 0)
+  strings-vpnize (>= 0)
 
