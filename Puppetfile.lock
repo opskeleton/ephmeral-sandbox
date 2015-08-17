@@ -34,7 +34,7 @@ GIT
 GIT
   remote: git://github.com/pulling-strings/puppet-vpnize.git
   ref: master
-  sha: fc9ab32b0353828b759bdd3ef38f9a291bafc41a
+  sha: b1788d22d22e7d9ccbf4f04a71bfd321f1511a4c
   specs:
     strings-vpnize (0.0.1)
       gini-archive (= 0.2.0)
