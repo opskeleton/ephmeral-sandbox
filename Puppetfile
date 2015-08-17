@@ -8,6 +8,9 @@ mod 'strings/desktop',
 mod 'strings/vpnize', 
   :git => 'git://github.com/pulling-strings/puppet-vpnize.git'
 
+mod 'strings/pullib', 
+  :git => 'git://github.com/pulling-strings/puppet-pullib.git'
+
 mod 'strings/ufw',
   :git => 'git://github.com/pulling-strings/attachmentgenie-ufw.git'
 

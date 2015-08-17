@@ -24,6 +24,14 @@ GIT
       puppetlabs-stdlib (< 5.0.0, >= 2.2.1)
 
 GIT
+  remote: git://github.com/pulling-strings/puppet-pullib.git
+  ref: master
+  sha: 65fc1cbd949dbc4e4400f16a190f51832e08662e
+  specs:
+    strings-pullib (0.0.1)
+      puppetlabs-stdlib (>= 1.0.0)
+
+GIT
   remote: git://github.com/pulling-strings/puppet-vpnize.git
   ref: master
   sha: fc9ab32b0353828b759bdd3ef38f9a291bafc41a
@@ -35,6 +43,7 @@ GIT
 DEPENDENCIES
   puppetlabs-stdlib (>= 0)
   strings-desktop (>= 0)
+  strings-pullib (>= 0)
   strings-ufw (>= 0)
   strings-vpnize (>= 0)
 
