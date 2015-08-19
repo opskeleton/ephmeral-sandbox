@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     node.vm.provision :shell, :inline => update
     node.vm.provision :puppet do |puppet|
       puppet.manifests_path = 'manifests'
-      puppet.manifest_file  = 'default.pp'
+	puppet.manifest_file  = 'ephmeral.pp'
       puppet.options = "--modulepath=/vagrant/modules:/vagrant/static-modules --hiera_config /vagrant/hiera_vagrant.yaml --environment=#{env}"
     end
   end
