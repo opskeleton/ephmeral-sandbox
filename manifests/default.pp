@@ -15,5 +15,6 @@ node default {
 
   class{'vpnize::torguard':}
   class{'vpnize::fortint':}
+  class{'vpnize::openconnect':}
   class{'desktop::chrome':}
 }
