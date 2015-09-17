@@ -4,7 +4,11 @@ FORGE
     gini-archive (0.2.0)
     puppetlabs-apt (2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 4.5.0)
-    puppetlabs-stdlib (4.8.0)
+    puppetlabs-stdlib (4.9.0)
+    stahnma-epel (1.1.1)
+    stankevich-python (1.9.7)
+      puppetlabs-stdlib (< 6.0.0, >= 4.6.0)
+      stahnma-epel (< 2.0.0, >= 1.0.1)
 
 GIT
   remote: git://github.com/pulling-strings/attachmentgenie-ufw.git
@@ -17,11 +21,18 @@ GIT
 GIT
   remote: git://github.com/pulling-strings/puppet-desktop.git
   ref: master
-  sha: b0dc2c8381a285c9088c4b255dc38c2350cf9e84
+  sha: 584d42b3e93d2fde31b3a7c1d7c0199002824e5e
   specs:
     strings-desktop (0.1.0)
       puppetlabs-apt (>= 2.1.1)
       puppetlabs-stdlib (< 5.0.0, >= 2.2.1)
+
+GIT
+  remote: git://github.com/pulling-strings/puppet-git.git
+  ref: master
+  sha: 5287b58d3bfcdf740e0eed9409410accd9c20c44
+  specs:
+    strings-git (0.0.1)
 
 GIT
   remote: git://github.com/pulling-strings/puppet-pullib.git
@@ -32,9 +43,17 @@ GIT
       puppetlabs-stdlib (>= 1.0.0)
 
 GIT
+  remote: git://github.com/pulling-strings/puppet-shell.git
+  ref: master
+  sha: e5e1eba9c31aec5955522be1798d2ba39fff1af6
+  specs:
+    strings-shell (0.2.0)
+      stankevich-python (>= 1.7.8)
+
+GIT
   remote: git://github.com/pulling-strings/puppet-vpnize.git
   ref: master
-  sha: 765d330f34c236c3ed78a6c1bb824e2410a2174b
+  sha: 72bf99562bd486a8610622b010c2316f7995f8b6
   specs:
     strings-vpnize (0.0.1)
       gini-archive (= 0.2.0)
@@ -43,7 +62,9 @@ GIT
 DEPENDENCIES
   puppetlabs-stdlib (>= 0)
   strings-desktop (>= 0)
+  strings-git (>= 0)
   strings-pullib (>= 0)
+  strings-shell (>= 0)
   strings-ufw (>= 0)
   strings-vpnize (>= 0)
 

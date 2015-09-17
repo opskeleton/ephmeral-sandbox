@@ -1,1 +1,5 @@
 ---
+shell::user: 'vagrant'         
+shell::home: '/home/vagrant'
+
+

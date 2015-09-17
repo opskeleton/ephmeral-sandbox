@@ -1,5 +1,6 @@
 node default {
   include apt
+  include shell
 
   if($::lsbdistcodename == 'vivid'){
     Service {
