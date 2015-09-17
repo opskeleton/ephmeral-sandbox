@@ -14,4 +14,8 @@ mod 'strings/pullib',
 mod 'strings/ufw',
   :git => 'git://github.com/pulling-strings/attachmentgenie-ufw.git'
 
+mod 'strings/shell', 
+  :git => 'git://github.com/pulling-strings/puppet-shell.git'
 
+mod 'strings/git', 
+  :git => 'git://github.com/pulling-strings/puppet-git.git'
