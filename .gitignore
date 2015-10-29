@@ -5,3 +5,5 @@ modules
 pkg
 TorGuardPRO.zip
 hieradata/prod.yaml
+OpenVPN-TCP.zip
+OpenVPN-UDP.zip
