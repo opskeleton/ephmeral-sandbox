@@ -10,36 +10,50 @@ SCRIPT
 
 Vagrant.configure("2") do |config|
 
-  Dir['manifests/*'].map{|it| it.match(/manifests\/(\w*).pp/)[1]}.each do |type|
-    config.vm.define type.to_sym do |node| 
+  bridge = ENV['VAGRANT_BRIDGE'] || 'eth0'
+  env  = ENV['PUPPET_ENV'] || 'dev'
 
-	bridge = ENV['VAGRANT_BRIDGE'] || 'eth0'
-	env  = ENV['PUPPET_ENV'] || 'dev'
+  config.vm.define :torguard do |node| 
 
-	node.vm.box = 'lubuntu-15.04_puppet-3.7.5'
-	node.vm.hostname = "#{type}.local"
-	node.vm.network :public_network, :bridge => bridge
-      node.ssh.port = 2222
+    node.vm.provider 'virtualbox'
+    node.vm.box = 'lubuntu-15.04_puppet-3.7.5'
+    node.vm.hostname = 'torguard.local'
+    node.vm.network :public_network, :bridge => bridge, :dev => bridge
+    node.ssh.port = 2222
 
-	node.vm.provider :virtualbox do |vb|
-        vb.memory = 2096
-        vb.cpus = 4
-        vb.gui = false
-	end
+    node.vm.provider :virtualbox do |vb|
+	vb.memory = 3096
+	vb.cpus = 4
+	vb.gui = false
+    end
 
-	node.vm.provider :libvirt do |domain|
-	  domain.uri = 'qemu+unix:///system'
-	  domain.host = "#{type}.local"
-	  domain.memory = 2048
-	  domain.cpus = 2
-	end
+    node.vm.provision :shell, :inline => update
+    node.vm.provision :puppet do |puppet|
+	puppet.manifests_path = 'manifests'
+	puppet.manifest_file  = 'torguard.pp'
+	puppet.options = "--modulepath=/vagrant/modules:/vagrant/static-modules --hiera_config /vagrant/hiera_vagrant.yaml --environment=#{env}"
+    end
+  end
 
-	node.vm.provision :shell, :inline => update
-	node.vm.provision :puppet do |puppet|
-	  puppet.manifests_path = 'manifests'
-	  puppet.manifest_file  = "#{type}.pp"
-	  puppet.options = "--modulepath=/vagrant/modules:/vagrant/static-modules --hiera_config /vagrant/hiera_vagrant.yaml --environment=#{env}"
-	end
+  config.vm.define :ephmeral do |node| 
+
+    node.vm.provider 'libvirt'
+    node.vm.box = 'lubuntu-15.04_puppet-3.7.5'
+    node.vm.network :public_network, :bridge => bridge, :dev => bridge
+
+    node.vm.provider :libvirt do |domain,o|
+	domain.uri = 'qemu+unix:///system'
+	domain.host = 'ephmeral.local'
+	domain.memory = 2048
+	domain.cpus = 2
+	o.vm.synced_folder './', '/vagrant', type: 'nfs'
+    end
+
+    node.vm.provision :shell, :inline => update
+    node.vm.provision :puppet do |puppet|
+	puppet.manifests_path = 'manifests'
+	puppet.manifest_file  = 'ephmeral.pp'
+	puppet.options = "--modulepath=/vagrant/modules:/vagrant/static-modules --hiera_config /vagrant/hiera_vagrant.yaml --environment=#{env}"
     end
   end
 end
